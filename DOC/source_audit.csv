@@ -1,0 +1,7 @@
+﻿metric,value,status
+input_lines,2084,measured
+project_entries_parsed,2082,measured
+blank_or_non_project_lines,2,measured
+exact_duplicate_groups,5,algorithmic_candidate
+entries_in_exact_duplicate_groups,11,algorithmic_candidate
+similarity_candidate_pairs,2894,candidate_only_manual_review_required

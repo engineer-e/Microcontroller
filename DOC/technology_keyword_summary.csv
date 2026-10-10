@@ -1,0 +1,37 @@
+﻿technology_keyword,title_match_count,status,note
+AVR / ATmega,1104,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+8051-family / MCU,585,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+LED,218,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+LCD / OLED,117,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+Arduino,102,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+Wi-Fi,63,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+Sensor(s),63,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+ESP8266 / ESP32,28,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+Battery,24,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+8051,24,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+RFID / NFC,22,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+DC motor,21,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+Stepper motor,19,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+Ultrasonic,18,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+Bluetooth,18,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+Solar PV,15,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+Power supply / SMPS,14,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+GSM,14,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+IoT,14,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+Servo motor,13,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+GPS,12,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+GPS/GNSS,12,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+Temperature sensor,12,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+Inverter / UPS,11,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+Relay,11,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+Python,9,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+PIC MCU,8,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+IR,8,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+C / C++,7,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+Raspberry Pi camera / vision,7,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+Android,6,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+Audio amplifier,5,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+FPGA,2,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+AI / ML,1,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+PLC,1,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
+Raspberry Pi,1,TITLE_KEYWORD_MATCH_ONLY,Does not prove the project actually implements or uses this technology
