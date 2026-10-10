@@ -1,0 +1,161 @@
+/*Here is the fully corrected ATmega32 UART code for Atmel Studio. It initializes UART at 9600 baud, receives characters from the serial terminal, displays each received character on `PORTC`, and sends the complete text back when you press Enter.
+
+## Complete corrected `main.c`
+
+c
+*/
+
+/*
+ * main.c
+ *
+ * Created: 10/10/2026
+ * Author: Gobal Krishnan V & ChatGPT
+ */
+
+#define F_CPU 16000000UL
+
+#include <avr/io.h>
+#include <util/delay.h>
+
+#define BAUD_RATE 9600UL
+
+// Check whether UART data has been received
+#define uartReady (UCSRA & (1 << RXC))
+
+// Initialize UART
+void uartInit(unsigned long baud)
+{
+    unsigned int ubrr;
+
+    // Calculate baud rate register value
+    ubrr = (F_CPU / (16UL * baud)) - 1;
+
+    UBRRH = (unsigned char)(ubrr >> 8);
+    UBRRL = (unsigned char)ubrr;
+
+    // Enable UART receiver and transmitter
+    UCSRB = (1 << RXEN) | (1 << TXEN);
+
+    // Asynchronous mode, 8 data bits, no parity, 1 stop bit
+    UCSRC = (1 << URSEL) | (1 << UCSZ1) | (1 << UCSZ0);
+}
+
+// Transmit one character
+void uartTransmit(unsigned char data)
+{
+    // Wait until transmit buffer is empty
+    while (!(UCSRA & (1 << UDRE)))
+    {
+    }
+
+    UDR = data;
+}
+
+// Receive one character
+unsigned char uartReceive(void)
+{
+    // Wait until data is received
+    while (!(UCSRA & (1 << RXC)))
+    {
+    }
+
+    return UDR;
+}
+
+// Transmit a string
+void sendText(const char *txt)
+{
+    while (*txt != '\0')
+    {
+        uartTransmit((unsigned char)*txt);
+        txt++;
+    }
+}
+
+int main(void)
+{
+    unsigned char tmp;
+    unsigned char i = 0;
+    char txt[16];
+
+    // Configure PORTC as output
+    DDRC = 0xFF;
+
+    // Initialize UART at 9600 baud
+    uartInit(BAUD_RATE);
+
+    // Send startup message
+    sendText("ATMEGA32 AVR UART Example 1 = Gobal Krishnan V & Microchip & Chatgpt\r\n");
+
+    while (1)
+    {
+        // Check whether a character has arrived
+        if (uartReady)
+        {
+            tmp = uartReceive();
+
+            // Display received character on PORTC
+            PORTC = tmp;
+
+            // Check for Enter key (carriage return)
+            if (tmp == '\r' || tmp == '\n')
+            {
+                if (i > 0)
+                {
+                    // Terminate the received string
+                    txt[i] = '\0';
+
+                    // Send received string back to terminal
+                    sendText(txt);
+                    sendText("\r\n");
+
+                    // Clear buffer index for the next string
+                    i = 0;
+                }
+            }
+            else
+            {
+                // Store character only if space is available
+                if (i < sizeof(txt) - 1)
+                {
+                    txt[i++] = (char)tmp;
+                }
+            }
+        }
+    }
+}
+
+/*
+
+## What was corrected?
+
+- Compiler error: Changed `sendText(char *txt)` to `sendText(const char *txt)`, allowing string literals to be passed safely.
+- UART initialization: Removed the duplicate `RXEN` bit.
+- Buffer overflow: Limited input to 15 characters plus the terminating null character.
+- String termination: Added `'\0'` before transmitting the received string.
+- Enter key handling: Processes carriage return (`'\r'`) and newline (`'\n'`) safely.
+- Uninitialized variable: `tmp` is now used only after receiving a character.
+- Buffer reset: Resets `i` to zero after echoing the string.
+
+## How to test it in Proteus
+
+microcontroller - How to set up RS232 UART in Proteus? - Electrical Engineering Stack Exchange
+
+1. Configure the circuit
+
+Connect ATmega32 `PD1 (TXD)` to the Virtual Terminal RXD and `PD0 (RXD)` to the Virtual Terminal TXD. Use a 16 MHz clock and a common ground.
+
+proteus ?????????virtual terminal??? - FBshark - ???
+
+2. Set terminal parameters
+
+Set baud rate to `9600`, data bits to `8`, parity to `None`, and stop bits to `1`.
+
+AVR Freaks
+
+3. Test the program
+
+Type `HELLO AVR` and press Enter. The terminal should display `HELLO AVR` again.
+
+Note: The `PORTC` output shows the binary pattern of the last received character. If you are using a standard ATmega32 development board, check whether JTAG is enabled because it can interfere with some `PORTC` pins.
+*/
